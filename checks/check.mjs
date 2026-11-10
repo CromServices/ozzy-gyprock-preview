@@ -163,6 +163,24 @@ assert(barMetrics.count === 2, `expected 2 bar links, got ${barMetrics.count}`);
 assert(barMetrics.tops.length === 1, `Call|Quote bar not a single line (tops ${barMetrics.tops})`);
 assert(barMetrics.wrap === "nowrap", `bar flex-wrap is ${barMetrics.wrap}`);
 assert(/call/i.test(barMetrics.text) && /quote/i.test(barMetrics.text), `bar text was ${barMetrics.text}`);
+const barColors = await page.evaluate(() => {
+  const call = document.querySelector(".sticky-call a.call");
+  const quote = document.querySelector(".sticky-call a.quote");
+  const cs = (el) => getComputedStyle(el);
+  return {
+    callBg: cs(call).backgroundColor,
+    callFg: cs(call).color,
+    quoteBg: cs(quote).backgroundColor,
+    quoteFg: cs(quote).color,
+    callW: call.getBoundingClientRect().width,
+    quoteW: quote.getBoundingClientRect().width,
+  };
+});
+assert(barColors.callBg === "rgb(32, 152, 200)", `Call bar fill ${barColors.callBg} is not cyan`);
+assert(barColors.callFg === "rgb(255, 255, 255)", `Call bar text ${barColors.callFg} is not white`);
+assert(barColors.quoteBg === "rgb(255, 255, 255)", `Quote bar fill ${barColors.quoteBg} is not white`);
+assert(barColors.quoteFg === "rgb(16, 24, 32)", `Quote bar text ${barColors.quoteFg} is not ink`);
+assert(Math.abs(barColors.callW - barColors.quoteW) <= 2, `bar widths ${barColors.callW} vs ${barColors.quoteW}`);
 
 await setViewport(page, 320, 720);
 const ov320 = await overflow(page);
