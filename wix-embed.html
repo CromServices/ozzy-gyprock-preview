@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ozzy Gyprock Pty Ltd — Professional plastering in Sydney</title>
+<meta name="description" content="Ozzy Gyprock provides professional plastering services all over Sydney, New South Wales. We are qualified, reliable, efficient and only produce quality work.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preload" href="https://cromservices.github.io/ozzy-gyprock-preview/assets/fonts/poppins-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://cromservices.github.io/ozzy-gyprock-preview/assets/fonts/poppins-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://cromservices.github.io/ozzy-gyprock-preview/assets/fonts/poppins-700.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:Poppins;font-style:normal;font-weight:400;font-display:swap;src:url(https://cromservices.github.io/ozzy-gyprock-preview/assets/fonts/poppins-400.woff2) format("woff2")}
+@font-face{font-family:Poppins;font-style:normal;font-weight:600;font-display:swap;src:url(https://cromservices.github.io/ozzy-gyprock-preview/assets/fonts/poppins-600.woff2) format("woff2")}
+@font-face{font-family:Poppins;font-style:normal;font-weight:700;font-display:swap;src:url(https://cromservices.github.io/ozzy-gyprock-preview/assets/fonts/poppins-700.woff2) format("woff2")}
+
+:root{
+  --ink:#101820;
+  --navy:#082070;
+  --blue:#2098C8;
+  --blue-deep:#1878A0;
+  --paper:#F4F6F8;
+  --white:#FFFFFF;
+  --muted:#5C656E;
+  --line:#D9DEE4;
+  --text:#101820;
+  --bg:#F4F6F8;
+  --surface:#FFFFFF;
+  --hero:#101820;
+  --hero-text:#FFFFFF;
+  --kicker:#082070;
+  --chip-on-bg:#101820;
+  --chip-on-fg:#FFFFFF;
+  --input:#E8ECF0;
+  --card:#F4F6F8;
+  --footer:#101820;
+  --sticky:#101820;
+  --max:1120px;
+  --sans:Poppins,system-ui,sans-serif;
+  color-scheme:light;
+}
+html[data-theme="dark"]{
+  --text:#F4F6F8;
+  --bg:#0C1216;
+  --surface:#182028;
+  --hero:#101820;
+  --hero-text:#FFFFFF;
+  --kicker:#C5CEE8;
+  --muted:#A8B2BA;
+  --line:#2C363E;
+  --chip-on-bg:#FFFFFF;
+  --chip-on-fg:#101820;
+  --input:#2A343C;
+  --card:#182028;
+  --footer:#101820;
+  --sticky:#101820;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:88px;scroll-behavior:smooth}
+html,body{margin:0;padding:0}
+body{
+  font-family:var(--sans);
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;height:auto;display:block}
+[hidden]{display:none !important}
+a{color:inherit}
+a[href^="mailto:"]{overflow-wrap:break-word;word-break:break-word}
+.wrap{width:min(var(--max),calc(100% - 48px));margin:0 auto}
+header.site{
+  position:sticky;top:0;z-index:40;
+  background:var(--surface);
+  border-bottom:1px solid var(--line);
+}
+header.site .bar{display:flex;align-items:center;gap:20px;min-height:76px}
+header.site .logo{flex:0 0 auto;min-width:0}
+header.site .logo img{height:48px;width:auto;max-width:min(200px,46vw)}
+nav.main{
+  display:flex;align-items:center;flex-wrap:wrap;
+  gap:8px 18px;margin-left:auto;font-size:14px;font-weight:600;
+}
+nav.main a{color:var(--text);text-decoration:none;padding:10px 0;min-height:44px;display:inline-flex;align-items:center}
+nav.main a:hover{color:var(--navy)}
+html[data-theme="dark"] nav.main a:hover{color:#C5CEE8}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:44px;padding:10px 20px;border-radius:2px;
+  font-weight:600;font-size:14px;text-decoration:none;
+  border:1px solid transparent;cursor:pointer;font-family:inherit;
+}
+.btn-blue{background:var(--blue);color:#fff;border-color:var(--blue)}
+.btn-blue:hover,.btn-blue:focus-visible{background:var(--blue-deep);border-color:var(--blue-deep)}
+nav.main a.btn-blue{color:#fff;padding:10px 20px}
+nav.main a.btn-blue:hover{color:#fff}
+.btn-ghost{background:transparent;color:var(--hero-text);border-color:rgba(255,255,255,.55)}
+.btn-ghost:hover{border-color:#fff;color:#fff}
+.theme-toggle{
+  flex:0 0 auto;
+  width:44px;height:44px;padding:0;margin-left:4px;
+  border:1px solid var(--line);border-radius:2px;
+  background:transparent;color:var(--text);cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;
+}
+.theme-toggle:hover{border-color:var(--navy);color:var(--navy)}
+html[data-theme="dark"] .theme-toggle:hover{border-color:#C5CEE8;color:#C5CEE8}
+.theme-toggle svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+html[data-theme="dark"] .icon-moon{display:none}
+html:not([data-theme="dark"]) .icon-sun{display:none}
+
+.hero{background:var(--hero);color:var(--hero-text)}
+.hero-copy{width:min(var(--max),calc(100% - 48px));margin:0 auto;padding:88px 0 80px}
+.eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:rgba(255,255,255,.72);margin:0 0 18px}
+.hero h1{font-size:clamp(40px,5.4vw,68px);line-height:.98;font-weight:700;letter-spacing:-.03em;margin:0 0 20px;max-width:14ch}
+.hero p.lead{font-size:18px;line-height:1.45;color:rgba(255,255,255,.88);margin:0 0 28px;max-width:38em}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 32px}
+.proof{display:flex;flex-wrap:wrap;gap:8px 20px;padding:0;margin:0;list-style:none;font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:rgba(255,255,255,.8)}
+
+section{padding:88px 0}
+.kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--kicker);margin:0 0 12px}
+h2{font-size:clamp(28px,3.4vw,42px);line-height:1.05;letter-spacing:-.03em;margin:0 0 16px;font-weight:700}
+.lede{font-size:18px;color:var(--muted);max-width:40em;margin:0 0 40px}
+
+.services{background:var(--surface)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--card);padding:28px;border-top:3px solid var(--navy)}
+html[data-theme="dark"] .card{border-top-color:var(--kicker)}
+.card h3{margin:0;font-size:20px;letter-spacing:-.02em}
+
+.about{background:var(--bg)}
+.about p{margin:0;font-size:17px;color:var(--text);max-width:44em}
+
+.project{background:var(--surface)}
+.project-card{max-width:720px}
+.project-card p{margin:0;font-size:17px;color:var(--text)}
+
+.work{background:var(--bg)}
+.slots{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.slot{
+  aspect-ratio:4/3;background:var(--card);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--muted);font-weight:600;font-size:14px;letter-spacing:.04em;
+  border:1px dashed var(--line);
+}
+
+.quote{background:var(--surface)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.split > *{min-width:0;max-width:100%}
+.steps{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:16px}
+.steps li{display:grid;grid-template-columns:36px 1fr;gap:14px;align-items:start}
+.steps .n{
+  width:36px;height:36px;border:1px solid var(--text);
+  display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;
+}
+.steps h3{margin:0 0 4px;font-size:16px}
+.steps p{margin:0;color:var(--muted);font-size:14px}
+
+form.quote-form,form.book-form{display:grid;grid-template-columns:1fr 1fr;gap:14px;width:100%;min-width:0}
+form.quote-form > *,form.book-form > *{min-width:0;max-width:100%}
+form .full{grid-column:1/-1}
+label{display:block;font-size:12px;font-weight:600;margin:0 0 6px}
+input,textarea{
+  width:100%;min-height:44px;border:0;background:var(--input);
+  padding:10px 12px;font:inherit;color:var(--text);
+}
+textarea{min-height:120px;resize:vertical}
+.success{
+  display:none;padding:24px;background:var(--card);border-top:3px solid var(--navy);
+  font-size:16px;
+}
+html[data-theme="dark"] .success{border-top-color:var(--kicker)}
+.success.is-on{display:block}
+.form-error{color:#8B1E2D;font-size:13px;margin:0;display:none}
+html[data-theme="dark"] .form-error{color:#F2B8C0}
+
+.book{background:var(--bg)}
+.day-chips,.time-pills,.job-chips{display:flex;flex-wrap:wrap;gap:8px;padding:2px 0 8px;min-width:0;max-width:100%}
+.chip,.pill{
+  flex:0 0 auto;min-height:44px;min-width:44px;padding:8px 14px;
+  border:1px solid var(--line);background:var(--surface);border-radius:999px;
+  font:inherit;font-size:13px;font-weight:600;cursor:pointer;color:var(--text);
+}
+.chip{display:flex;flex-direction:column;align-items:center;line-height:1.15;padding:8px 16px}
+.chip small{font-weight:400;font-size:11px;color:var(--muted)}
+.chip.is-on,.pill.is-on{background:var(--chip-on-bg);color:var(--chip-on-fg);border-color:var(--chip-on-bg)}
+.chip.is-on small{color:inherit;opacity:.8}
+.chip:disabled,.pill:disabled{
+  cursor:not-allowed;opacity:.42;background:var(--card);color:var(--muted);
+}
+.summary{
+  margin:4px 0 0;font-size:14px;font-weight:600;color:var(--text);
+  min-height:1.5em;
+}
+.book-form .btn-blue{width:100%}
+
+.contact{background:var(--hero);color:var(--hero-text);padding:88px 0}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.contact h2{color:#fff}
+.contact a{color:#fff}
+.contact .meta{margin:0 0 10px;font-size:16px}
+.contact .kicker{color:rgba(255,255,255,.7)}
+.contact .lede,.contact p{color:rgba(255,255,255,.88)}
+
+footer.site{background:var(--footer);color:rgba(255,255,255,.75);padding:22px 0 28px;font-size:13px}
+footer.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer.site img{height:36px;width:auto}
+
+.sticky-call{display:none}
+
+@media (max-width:900px){
+  .cards,.slots,.split,.contact-grid{grid-template-columns:1fr}
+  form.quote-form,form.book-form{grid-template-columns:1fr}
+  .hero-copy{padding:64px 0 56px}
+}
+@media (max-width:600px){
+  header.site .bar{min-height:64px;gap:10px 12px;flex-wrap:wrap;padding:8px 0}
+  header.site .logo{flex:1 1 auto}
+  header.site .logo img{height:36px;max-width:min(160px,58vw)}
+  nav.main a.phone,nav.main a.btn-blue{display:none}
+  nav.main{flex:1 1 100%;margin-left:0;justify-content:flex-start;gap:8px 12px;font-size:13px}
+  .theme-toggle{margin-left:auto}
+  .wrap,.hero-copy{width:min(var(--max),calc(100% - 32px))}
+  section,.contact{padding:64px 0}
+  .hero{min-height:calc(100svh - 64px - 56px)}
+  .hero h1{font-size:36px;max-width:none}
+  .day-chips,.time-pills,.job-chips{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+  .sticky-call{
+    display:flex;flex-wrap:nowrap;align-items:stretch;
+    position:fixed;left:0;right:0;bottom:0;z-index:50;
+    background:var(--sticky);
+    height:56px;max-height:56px;
+  }
+  .sticky-call a{
+    flex:1 1 0;min-height:56px;max-height:56px;
+    display:flex;align-items:center;justify-content:center;
+    text-decoration:none;font-weight:700;font-size:13px;
+    letter-spacing:.08em;text-transform:uppercase;color:#fff;
+    white-space:nowrap;overflow:hidden;
+  }
+  .sticky-call a+a{border-left:1px solid rgba(255,255,255,.2)}
+  .sticky-call a.quote{background:#fff;color:var(--ink)}
+  body{padding-bottom:56px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{scroll-behavior:auto !important;transition:none !important}
+}
+
+</style>
+<script>
+(function(){
+  try {
+    var t = localStorage.getItem("ozzy-theme");
+    if (t !== "light" && t !== "dark") {
+      t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    document.documentElement.setAttribute("data-theme", t);
+  } catch (e) {}
+})();
+</script>
+</head>
+<body>
+<header class="site">
+  <div class="wrap bar">
+    <a class="logo" href="#top" aria-label="Ozzy Gyprock, home">
+      <img src="https://cromservices.github.io/ozzy-gyprock-preview/assets/logo-header.png" alt="Ozzy Gyprock" width="610" height="200">
+    </a>
+    <nav class="main" aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#book">Book</a>
+      <a href="#enquiry">Enquiry</a>
+      <a class="phone" href="tel:+61435897491">0435 897 491</a>
+      <a class="btn btn-blue" href="#enquiry">Request a quote</a>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch light/dark">
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 3v2M12 19v2M5 12H3M21 12h-2M6.2 6.2 4.8 4.8M19.2 19.2l-1.4-1.4M6.2 17.8 4.8 19.2M19.2 4.8l-1.4 1.4"></path>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M15.5 3.5A8.5 8.5 0 1 0 20.5 14 7 7 0 0 1 15.5 3.5z"></path>
+        </svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-label="Introduction">
+    <div class="hero-copy">
+      <p class="eyebrow">Sydney, New South Wales</p>
+      <h1>Professional plastering in Sydney</h1>
+      <p class="lead">We are a team of qualified and experienced plasterers. Since 2010, we’ve been providing customers with top of the line plastering services that cater to their specific needs and requirements.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-blue" href="#book">Book a visit</a>
+        <a class="btn btn-ghost" href="#enquiry">Request a quote</a>
+      </div>
+      <ul class="proof">
+        <li>Since 2010</li>
+        <li>All over Sydney</li>
+        <li>Qualified and experienced</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="wrap">
+      <p class="kicker">Services</p>
+      <h2>Fix, remodel, re-create or repair what you need, when you need it</h2>
+      <p class="lede">From small projects to larger and more complex jobs, we have experience dealing with all sorts of parameters.</p>
+      <div class="cards">
+        <article class="card"><h3>Repair and restoration</h3></article>
+        <article class="card"><h3>Drywall installation</h3></article>
+        <article class="card"><h3>Painting services</h3></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap">
+      <p class="kicker">About us</p>
+      <h2>Professional plastering at your service</h2>
+      <p>We are a team of qualified and experienced plasterers from Sydney, New South Wales. Since 2010, we’ve been providing customers with top of the line plastering services that cater to their specific needs and requirements. From small projects to larger and more complex jobs, we have experience dealing with all sorts of parameters. We’re here to fix, remodel, re-create or repair what you need, when you need it. Contact us today to find out how we can help.</p>
+    </div>
+  </section>
+
+  <section class="project" id="projects">
+    <div class="wrap">
+      <p class="kicker">Projects</p>
+      <h2>Ropes Crossing Apartments</h2>
+      <div class="project-card">
+        <p>While working on this project, I was very strict about the materials and footprint of my work. My client was interested in an economically and environmentally sustainable outcome, and I did everything to respect these wishes throughout the whole process in order to make sure they were satisfied with the outcome.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="work" id="work">
+    <div class="wrap">
+      <p class="kicker">Our work</p>
+      <h2>Job photographs</h2>
+      <div class="slots">
+        <div class="slot">Your photo here</div>
+        <div class="slot">Your photo here</div>
+        <div class="slot">Your photo here</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote" id="enquiry">
+    <div class="wrap split">
+      <div>
+        <p class="kicker">Enquiries</p>
+        <h2>Tell us about the job</h2>
+        <p class="lede">Fill out the form, or call us.</p>
+        <ol class="steps">
+          <li><span class="n">1</span><div><h3>Tell us about the job</h3><p>Your name, phone, email and a short note are enough.</p></div></li>
+          <li><span class="n">2</span><div><h3>Send the form</h3><p>Hit “Request a quote”. A short thank-you will show beside the form.</p></div></li>
+          <li><span class="n">3</span><div><h3>Prefer to talk</h3><p>Call 0435 897 491 and we can go through the work.</p></div></li>
+        </ol>
+      </div>
+      <div>
+        <form class="quote-form" action="#" method="post">
+          <div><label for="q-name">Name</label><input id="q-name" name="name" type="text" autocomplete="name"></div>
+          <div><label for="q-phone">Phone</label><input id="q-phone" name="phone" type="tel" autocomplete="tel"></div>
+          <div><label for="q-email">Email</label><input id="q-email" name="email" type="email" autocomplete="email"></div>
+          <div><label for="q-subject">Subject</label><input id="q-subject" name="subject" type="text"></div>
+          <div class="full"><label for="q-msg">Message</label><textarea id="q-msg" name="message"></textarea></div>
+          <div class="full"><button class="btn btn-blue" type="submit">Request a quote</button></div>
+        </form>
+        <div class="success" id="quote-success" hidden>
+          Thanks. Your quote request is saved.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="book" id="book">
+    <div class="wrap split">
+      <div>
+        <p class="kicker">Booking</p>
+        <h2>Book a visit</h2>
+        <p class="lede">Pick a day that suits you. This holds a visit or a call. The job is confirmed once we reply.</p>
+        <ol class="steps">
+          <li><span class="n">1</span><div><h3>Choose a day and a time window</h3><p>Leave your name and phone number.</p></div></li>
+          <li><span class="n">2</span><div><h3>Hit “Book a visit”</h3><p>A short confirmation will show with the day, window, and job type you picked.</p></div></li>
+          <li><span class="n">3</span><div><h3>We confirm the time</h3><p>If that window does not work, call 0435 897 491 to rearrange.</p></div></li>
+        </ol>
+      </div>
+      <div>
+        <form class="book-form" action="#" method="post">
+          <div><label for="b-name">Name</label><input id="b-name" name="name" type="text" autocomplete="name"></div>
+          <div><label for="b-phone">Phone</label><input id="b-phone" name="phone" type="tel" autocomplete="tel"></div>
+          <div class="full">
+            <label id="day-label">Preferred day</label>
+            <div class="day-chips" role="group" aria-labelledby="day-label"></div>
+          </div>
+          <div class="full">
+            <label id="time-label">Time window</label>
+            <div class="time-pills" role="group" aria-labelledby="time-label">
+              <button type="button" class="pill is-on" data-time="Morning" aria-pressed="true">Morning</button>
+              <button type="button" class="pill" data-time="Midday" aria-pressed="false">Midday</button>
+              <button type="button" class="pill" data-time="Afternoon" aria-pressed="false">Afternoon</button>
+            </div>
+          </div>
+          <div class="full">
+            <label id="job-label">Job type</label>
+            <div class="job-chips" role="group" aria-labelledby="job-label">
+              <button type="button" class="pill is-on" data-job="Repair and restoration" aria-pressed="true">Repair and restoration</button>
+              <button type="button" class="pill" data-job="Drywall installation" aria-pressed="false">Drywall installation</button>
+              <button type="button" class="pill" data-job="Painting services" aria-pressed="false">Painting services</button>
+            </div>
+          </div>
+          <p class="summary full" id="book-summary" aria-live="polite"></p>
+          <p class="form-error full" id="book-error"></p>
+          <div class="full"><button class="btn btn-blue" type="submit">Book a visit</button></div>
+        </form>
+        <div class="success" id="book-success" hidden>
+          <p id="book-success-line"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap contact-grid">
+      <div>
+        <p class="kicker">Contact</p>
+        <h2>Get in touch</h2>
+        <p>Sydney, New South Wales</p>
+      </div>
+      <div>
+        <p class="meta"><a href="tel:+61435897491">0435 897 491</a></p>
+        <p class="meta"><a href="mailto:ozzygyprock@bigpond.com">ozzygyprock@bigpond.com</a></p>
+        <p class="meta"><a href="https://www.facebook.com/ozzygyprock" rel="noopener noreferrer" target="_blank">Facebook</a></p>
+        <p class="meta">ABN 24 615 569 563</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <img src="https://cromservices.github.io/ozzy-gyprock-preview/assets/logo-header.png" alt="" width="610" height="200">
+    <span>Ozzy Gyprock Pty Ltd</span>
+    <span>© 2026 Ozzy Gyprock Pty Ltd</span>
+  </div>
+</footer>
+
+<nav class="sticky-call" aria-label="Phone actions">
+  <a href="tel:+61435897491">Call</a>
+  <a class="quote" href="#enquiry">Quote</a>
+</nav>
+
+<script>
+(function () {
+  var TZ = "Australia/Perth";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function ymdInPerth(date) {
+    return new Intl.DateTimeFormat("en-CA", {
+      timeZone: TZ,
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    }).format(date);
+  }
+
+  function addDays(ymd, days) {
+    var p = ymd.split("-").map(Number);
+    var dt = new Date(Date.UTC(p[0], p[1] - 1, p[2] + days));
+    var y = dt.getUTCFullYear();
+    var m = String(dt.getUTCMonth() + 1).padStart(2, "0");
+    var d = String(dt.getUTCDate()).padStart(2, "0");
+    return y + "-" + m + "-" + d;
+  }
+
+  function dow(ymd) {
+    var p = ymd.split("-").map(Number);
+    return new Date(Date.UTC(p[0], p[1] - 1, p[2])).getUTCDay();
+  }
+
+  function dayParts(ymd) {
+    var p = ymd.split("-").map(Number);
+    var dt = new Date(Date.UTC(p[0], p[1] - 1, p[2], 12));
+    var weekday = new Intl.DateTimeFormat("en-AU", { weekday: "short", timeZone: "UTC" }).format(dt);
+    var day = new Intl.DateTimeFormat("en-AU", { day: "numeric", timeZone: "UTC" }).format(dt);
+    var month = new Intl.DateTimeFormat("en-AU", { month: "short", timeZone: "UTC" }).format(dt);
+    return { weekday: weekday, day: day, month: month, label: weekday + " " + day + " " + month };
+  }
+
+  function storedTheme() {
+    try {
+      return localStorage.getItem("ozzy-theme");
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function systemTheme() {
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute("data-theme", theme === "dark" ? "dark" : "light");
+    try {
+      localStorage.setItem("ozzy-theme", theme === "dark" ? "dark" : "light");
+    } catch (e) {}
+  }
+
+  var initial = storedTheme();
+  applyTheme(initial === "dark" || initial === "light" ? initial : systemTheme());
+
+  var toggle = document.getElementById("theme-toggle");
+  if (toggle) {
+    toggle.addEventListener("click", function () {
+      var now = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      applyTheme(now);
+    });
+  }
+
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest('a[href^="#"]');
+    if (!a || a.getAttribute("target") === "_blank") return;
+    var id = a.getAttribute("href").slice(1);
+    if (!id) return;
+    var el = id === "top" ? document.getElementById("top") || document.body : document.getElementById(id);
+    if (!el) return;
+    e.preventDefault();
+    el.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+  });
+
+  function selectGroup(root, onChange) {
+    if (!root) return;
+    root.addEventListener("click", function (e) {
+      var btn = e.target.closest("button");
+      if (!btn || !root.contains(btn) || btn.disabled) return;
+      root.querySelectorAll("button").forEach(function (b) {
+        b.classList.remove("is-on");
+        b.setAttribute("aria-pressed", "false");
+      });
+      btn.classList.add("is-on");
+      btn.setAttribute("aria-pressed", "true");
+      if (onChange) onChange();
+    });
+  }
+
+  var dayRoot = document.querySelector(".day-chips");
+  if (dayRoot) {
+    var today = ymdInPerth(new Date());
+    var start = addDays(today, 1);
+    var html = "";
+    var firstOn = false;
+    for (var i = 0; i < 14; i++) {
+      var ymd = addDays(start, i);
+      var w = dow(ymd);
+      var parts = dayParts(ymd);
+      var weekend = w === 0 || w === 6;
+      var on = !weekend && !firstOn;
+      if (on) firstOn = true;
+      html +=
+        '<button type="button" class="chip' +
+        (on ? " is-on" : "") +
+        '" data-day="' +
+        ymd +
+        '" data-dow="' +
+        w +
+        '" data-label="' +
+        parts.label +
+        '" aria-pressed="' +
+        (on ? "true" : "false") +
+        '"' +
+        (weekend ? " disabled" : "") +
+        "><span>" +
+        parts.weekday +
+        "</span><small>" +
+        parts.day +
+        " " +
+        parts.month +
+        "</small></button>";
+    }
+    dayRoot.innerHTML = html;
+  }
+
+  var summaryEl = document.getElementById("book-summary");
+  function bookSummary() {
+    var dayBtn = document.querySelector(".day-chips .is-on");
+    var timeBtn = document.querySelector(".time-pills .is-on");
+    var jobBtn = document.querySelector(".job-chips .is-on");
+    var bits = [];
+    if (dayBtn) bits.push(dayBtn.getAttribute("data-label"));
+    if (timeBtn) bits.push(timeBtn.textContent.trim());
+    if (jobBtn) bits.push(jobBtn.textContent.trim());
+    if (summaryEl) {
+      summaryEl.textContent = bits.length
+        ? bits.join(" · ")
+        : "Pick a day, a time window, and a job type.";
+    }
+    return bits.join(" · ");
+  }
+
+  selectGroup(dayRoot, bookSummary);
+  selectGroup(document.querySelector(".time-pills"), bookSummary);
+  selectGroup(document.querySelector(".job-chips"), bookSummary);
+  bookSummary();
+
+  var bookForm = document.querySelector(".book-form");
+  var bookSuccess = document.getElementById("book-success");
+  var bookError = document.getElementById("book-error");
+  if (bookForm) {
+    bookForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var dayBtn = document.querySelector(".day-chips .is-on");
+      var timeBtn = document.querySelector(".time-pills .is-on");
+      var jobBtn = document.querySelector(".job-chips .is-on");
+      var name = (document.getElementById("b-name") || {}).value || "";
+      var phone = (document.getElementById("b-phone") || {}).value || "";
+      if (!dayBtn || !timeBtn || !jobBtn || !name.trim() || !phone.trim()) {
+        if (bookError) {
+          bookError.style.display = "block";
+          bookError.textContent = "Choose a day, a time window, and a job type, and add your name and phone.";
+        }
+        return;
+      }
+      if (bookError) bookError.style.display = "none";
+      bookForm.hidden = true;
+      if (bookSuccess) {
+        bookSuccess.classList.add("is-on");
+        bookSuccess.hidden = false;
+        var line = document.getElementById("book-success-line");
+        if (line) line.textContent = "Visit request saved: " + bookSummary() + ".";
+      }
+    });
+  }
+
+  var quoteForm = document.querySelector(".quote-form");
+  var quoteSuccess = document.getElementById("quote-success");
+  if (quoteForm) {
+    quoteForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      quoteForm.hidden = true;
+      if (quoteSuccess) {
+        quoteSuccess.classList.add("is-on");
+        quoteSuccess.hidden = false;
+      }
+    });
+  }
+})();
+
+</script>
+</body>
+</html>

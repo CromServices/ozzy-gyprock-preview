@@ -1,0 +1,11 @@
+{
+  "name": "ozzy-gyprock-preview",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node checks/check.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.65.0"
+  }
+}
