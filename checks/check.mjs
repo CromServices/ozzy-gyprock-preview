@@ -1,5 +1,5 @@
 import { createServer } from "node:http";
-import { readFile, mkdir } from "node:fs/promises";
+import { readFile, mkdir, readdir } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { extname, join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -214,6 +214,32 @@ assert(weekendInfo.count === 14, `expected 14 day chips, got ${weekendInfo.count
 assert(weekendInfo.weekendCount > 0, "no weekend chips to assert");
 assert(weekendInfo.weekendsDisabled, "weekends are not all disabled");
 assert(!weekendInfo.anyWeekendEnabled, "a weekend chip is enabled");
+
+await setViewport(page, 1440, 900);
+assert(await page.locator(".hero-card").isVisible(), "hero quote card missing at 1440");
+await setViewport(page, 390, 844);
+assert(await page.locator(".hero-card").isHidden(), "hero quote card should be hidden at 390");
+
+const skipScan = new Set(["node_modules", ".git", "shots"]);
+async function assertNoWorkCeiling(dir) {
+  const entries = await readdir(dir, { withFileTypes: true });
+  for (const entry of entries) {
+    if (skipScan.has(entry.name) || entry.name === "check.mjs") continue;
+    const full = join(dir, entry.name);
+    assert(!/work-ceiling/i.test(entry.name), `work-ceiling path remains: ${full}`);
+    if (entry.isDirectory()) {
+      await assertNoWorkCeiling(full);
+      continue;
+    }
+    const ext = extname(entry.name).toLowerCase();
+    if ([".png", ".jpg", ".jpeg", ".webp", ".woff2", ".lock"].includes(ext)) continue;
+    const text = await readFile(full, "utf8");
+    if (/work-ceiling/i.test(text)) {
+      assert(false, `work-ceiling reference remains in ${full}`);
+    }
+  }
+}
+await assertNoWorkCeiling(root);
 
 const visible = await page.evaluate(() => document.body.innerText);
 for (const item of BANNED) {
