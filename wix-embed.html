@@ -112,7 +112,22 @@ html[data-theme="dark"] .icon-moon{display:none}
 html:not([data-theme="dark"]) .icon-sun{display:none}
 
 .hero{background:var(--hero);color:var(--hero-text);padding:0}
-.hero-copy{width:min(var(--max),calc(100% - 48px));margin:0 auto;padding:88px 0 80px}
+.hero-split{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  align-items:stretch;
+}
+.hero-copy{
+  width:auto;
+  max-width:none;
+  margin:0;
+  padding:88px 40px 80px max(24px, calc((100vw - var(--max)) / 2));
+}
+.hero-photo{position:relative;min-height:100%;overflow:hidden}
+.hero-photo img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center 35%;
+}
 .eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:rgba(255,255,255,.72);margin:0 0 18px}
 .hero h1{font-size:clamp(40px,5.4vw,68px);line-height:.98;font-weight:700;letter-spacing:-.03em;margin:0 0 20px;max-width:14ch}
 .hero p.lead{font-size:18px;line-height:1.45;color:rgba(255,255,255,.88);margin:0 0 28px;max-width:38em}
@@ -213,7 +228,9 @@ footer.site img{height:36px;width:auto}
 @media (max-width:900px){
   .cards,.slots,.split,.contact-grid{grid-template-columns:1fr}
   form.quote-form,form.book-form{grid-template-columns:1fr}
-  .hero-copy{padding:64px 0 56px}
+  .hero-split{display:block}
+  .hero-photo{display:none}
+  .hero-copy{width:min(var(--max),calc(100% - 48px));margin:0 auto;padding:64px 0 56px}
 }
 @media (max-width:600px){
   header.site .bar{min-height:64px;gap:10px 12px;flex-wrap:wrap;padding:8px 0}
@@ -307,19 +324,24 @@ footer.site img{height:36px;width:auto}
 
 <main id="top">
   <section class="hero" aria-label="Introduction">
-    <div class="hero-copy">
-      <p class="eyebrow">Sydney, New South Wales</p>
-      <h1>Professional plastering in Sydney</h1>
-      <p class="lead">We are a team of qualified and experienced plasterers. Since 2010, we’ve been providing customers with top of the line plastering services that cater to their specific needs and requirements.</p>
-      <div class="hero-ctas">
-        <a class="btn btn-blue" href="#book">Book a visit</a>
-        <a class="btn btn-ghost" href="#enquiry">Request a quote</a>
+    <div class="hero-split">
+      <div class="hero-copy">
+        <p class="eyebrow">Sydney, New South Wales</p>
+        <h1>Professional plastering in Sydney</h1>
+        <p class="lead">We are a team of qualified and experienced plasterers. Since 2010, we’ve been providing customers with top of the line plastering services that cater to their specific needs and requirements.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-blue" href="#book">Book a visit</a>
+          <a class="btn btn-ghost" href="#enquiry">Request a quote</a>
+        </div>
+        <ul class="proof">
+          <li>Since 2010</li>
+          <li>All over Sydney</li>
+          <li>Qualified and experienced</li>
+        </ul>
       </div>
-      <ul class="proof">
-        <li>Since 2010</li>
-        <li>All over Sydney</li>
-        <li>Qualified and experienced</li>
-      </ul>
+      <div class="hero-photo">
+        <img src="https://cromservices.github.io/ozzy-gyprock-preview/assets/work-ceiling.png" alt="Plastering a ceiling" width="980" height="380">
+      </div>
     </div>
   </section>
 
