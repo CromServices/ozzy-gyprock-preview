@@ -57,14 +57,18 @@ html[data-theme="dark"]{
   color-scheme:dark;
 }
 *{box-sizing:border-box}
-html{scroll-padding-top:88px;scroll-behavior:smooth}
-html,body{margin:0;padding:0}
+html{scroll-padding-top:88px;scroll-behavior:smooth;overflow-x:visible}
+html,body{margin:0;padding:0;overflow:visible}
 body{
   font-family:var(--sans);
   color:var(--text);
   background:var(--bg);
   line-height:1.5;
   -webkit-font-smoothing:antialiased;
+  transition:background-color 200ms ease,color 200ms ease;
+}
+header.site,.hero,.hero-card,.services,.about,.project,.work,.quote,.book,.contact,footer.site,.card,.slot,.chip,.pill,input,textarea,.sticky-call{
+  transition:background-color 200ms ease,color 200ms ease,border-color 200ms ease;
 }
 img{max-width:100%;height:auto;display:block}
 [hidden]{display:none !important}
@@ -75,6 +79,8 @@ header.site{
   position:sticky;top:0;z-index:40;
   background:var(--surface);
   border-bottom:1px solid var(--line);
+  transform:none;
+  filter:none;
 }
 header.site .bar{display:flex;align-items:center;gap:20px;min-height:76px}
 header.site .logo{flex:0 0 auto;min-width:0}
@@ -99,17 +105,41 @@ nav.main a.btn-blue:hover{color:#fff}
 .btn-ghost{background:transparent;color:var(--hero-text);border-color:rgba(255,255,255,.55)}
 .btn-ghost:hover{border-color:#fff;color:#fff}
 .theme-toggle{
-  flex:0 0 auto;
+  flex:0 0 44px;
   width:44px;height:44px;padding:0;margin-left:4px;
-  border:1px solid var(--line);border-radius:2px;
+  border:0;border-radius:0;
   background:transparent;color:var(--text);cursor:pointer;
-  display:inline-flex;align-items:center;justify-content:center;
+  display:grid;place-items:center;
 }
-.theme-toggle:hover{border-color:var(--navy);color:var(--navy)}
-html[data-theme="dark"] .theme-toggle:hover{border-color:#C5CEE8;color:#C5CEE8}
-.theme-toggle svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-html[data-theme="dark"] .icon-moon{display:none}
-html:not([data-theme="dark"]) .icon-sun{display:none}
+.theme-toggle:focus{outline:none}
+.theme-toggle:focus-visible{
+  outline:2px solid currentColor;
+  outline-offset:2px;
+}
+.theme-toggle-face{
+  width:40px;height:40px;border-radius:50%;
+  border:1px solid color-mix(in srgb, currentColor 25%, transparent);
+  background:transparent;
+  display:grid;place-items:center;grid-template:1fr / 1fr;
+  transition:background-color 200ms ease,border-color 200ms ease;
+}
+.theme-toggle:hover .theme-toggle-face,
+.theme-toggle:focus-visible .theme-toggle-face{
+  background:color-mix(in srgb, currentColor 10%, transparent);
+}
+.theme-toggle svg{
+  grid-area:1 / 1;
+  width:20px;height:20px;
+  fill:none;stroke:currentColor;stroke-width:1.75;
+  stroke-linecap:round;stroke-linejoin:round;
+  pointer-events:none;
+  transform-origin:center;
+  transition:opacity 250ms ease,transform 250ms ease;
+}
+.icon-sun{opacity:0;transform:rotate(-90deg) scale(.6)}
+.icon-moon{opacity:1;transform:rotate(0deg) scale(1)}
+html[data-theme="dark"] .icon-sun{opacity:1;transform:rotate(0deg) scale(1)}
+html[data-theme="dark"] .icon-moon{opacity:0;transform:rotate(-90deg) scale(.6)}
 
 .hero{background:var(--hero);color:var(--hero-text);padding:0}
 .hero-split{
@@ -305,6 +335,7 @@ footer.site img{height:36px;width:auto}
   .sticky-call{
     display:flex;flex-wrap:nowrap;align-items:stretch;
     position:fixed;left:0;right:0;bottom:0;z-index:50;
+    transform:none;
     background:var(--paper);
     height:56px;max-height:56px;
     gap:0;
@@ -332,6 +363,7 @@ footer.site img{height:36px;width:auto}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *{scroll-behavior:auto !important;transition:none !important}
+  .icon-sun,.icon-moon{transition:none !important}
 }
 
 </style>
@@ -361,13 +393,15 @@ footer.site img{height:36px;width:auto}
       <a class="phone" href="tel:+61435897491">0435 897 491</a>
       <a class="btn btn-blue" href="#enquiry">Request a quote</a>
       <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch light/dark">
-        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
-          <circle cx="12" cy="12" r="4"></circle>
-          <path d="M12 3v2M12 19v2M5 12H3M21 12h-2M6.2 6.2 4.8 4.8M19.2 19.2l-1.4-1.4M6.2 17.8 4.8 19.2M19.2 4.8l-1.4 1.4"></path>
-        </svg>
-        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M15.5 3.5A8.5 8.5 0 1 0 20.5 14 7 7 0 0 1 15.5 3.5z"></path>
-        </svg>
+        <span class="theme-toggle-face">
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+        </span>
       </button>
     </nav>
   </div>

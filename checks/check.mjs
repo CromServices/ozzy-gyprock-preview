@@ -189,14 +189,66 @@ assert(ov320.scroll <= ov320.client + 1, `horizontal overflow at 320: ${ov320.sc
 await setViewport(page, 1440, 900);
 const toggle = page.locator('[aria-label="Switch light/dark"]');
 assert(await toggle.count() === 1, "theme toggle missing");
+
+async function iconState() {
+  return page.evaluate(() => {
+    const sun = document.querySelector(".icon-sun");
+    const moon = document.querySelector(".icon-moon");
+    const cs = (el) => getComputedStyle(el);
+    return {
+      theme: document.documentElement.getAttribute("data-theme"),
+      sunOp: parseFloat(cs(sun).opacity),
+      moonOp: parseFloat(cs(moon).opacity),
+      sunDisplay: cs(sun).display,
+      moonDisplay: cs(moon).display,
+    };
+  });
+}
+
 const before = await page.locator("html").getAttribute("data-theme");
+const iconsBefore = await iconState();
+assert(iconsBefore.sunDisplay !== "none" && iconsBefore.moonDisplay !== "none", "toggle still uses display:none");
+if (before === "dark") {
+  assert(iconsBefore.sunOp > 0.5 && iconsBefore.moonOp < 0.5, `dark theme should show sun, got sun ${iconsBefore.sunOp} moon ${iconsBefore.moonOp}`);
+} else {
+  assert(iconsBefore.moonOp > 0.5 && iconsBefore.sunOp < 0.5, `light theme should show moon, got sun ${iconsBefore.sunOp} moon ${iconsBefore.moonOp}`);
+}
 await toggle.click();
+await page.waitForTimeout(300);
 const after = await page.locator("html").getAttribute("data-theme");
 assert(before !== after, `theme did not toggle (still ${after})`);
 assert(after === "dark" || after === "light", `unexpected theme ${after}`);
+const iconsAfter = await iconState();
+if (after === "dark") {
+  assert(iconsAfter.sunOp > 0.5 && iconsAfter.moonOp < 0.5, `after click dark, sun ${iconsAfter.sunOp} moon ${iconsAfter.moonOp}`);
+} else {
+  assert(iconsAfter.moonOp > 0.5 && iconsAfter.sunOp < 0.5, `after click light, sun ${iconsAfter.sunOp} moon ${iconsAfter.moonOp}`);
+}
 await toggle.click();
+await page.waitForTimeout(300);
 const back = await page.locator("html").getAttribute("data-theme");
 assert(back === before, `theme did not restore (got ${back}, expected ${before})`);
+
+async function assertSticky(width, height) {
+  await setViewport(page, width, height);
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.evaluate(() => window.scrollTo(0, 1500));
+  const top = await page.locator("header.site").evaluate((el) => el.getBoundingClientRect().top);
+  assert(top === 0, `header top is ${top} after 1500px scroll at ${width}, expected 0`);
+  const overlap = await page.evaluate(() => {
+    const header = document.querySelector("header.site").getBoundingClientRect();
+    const bar = document.querySelector(".sticky-call");
+    if (!bar) return false;
+    const style = getComputedStyle(bar);
+    if (style.display === "none") return false;
+    const br = bar.getBoundingClientRect();
+    return header.bottom > br.top && header.top < br.bottom;
+  });
+  assert(!overlap, `header covers the Call|Quote bar at ${width}`);
+  await page.evaluate(() => window.scrollTo(0, 0));
+}
+await assertSticky(1440, 900);
+await assertSticky(390, 844);
 
 const weekendInfo = await page.evaluate(() => {
   const chips = [...document.querySelectorAll(".day-chips button")];
