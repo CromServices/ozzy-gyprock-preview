@@ -176,7 +176,7 @@ const barColors = await page.evaluate(() => {
     quoteW: quote.getBoundingClientRect().width,
   };
 });
-assert(barColors.callBg === "rgb(32, 152, 200)", `Call bar fill ${barColors.callBg} is not cyan`);
+assert(barColors.callBg === "rgb(30, 124, 188)", `Call bar fill ${barColors.callBg} is not the CTA blue`);
 assert(barColors.callFg === "rgb(255, 255, 255)", `Call bar text ${barColors.callFg} is not white`);
 assert(barColors.quoteBg === "rgb(255, 255, 255)", `Quote bar fill ${barColors.quoteBg} is not white`);
 assert(barColors.quoteFg === "rgb(16, 24, 32)", `Quote bar text ${barColors.quoteFg} is not ink`);
